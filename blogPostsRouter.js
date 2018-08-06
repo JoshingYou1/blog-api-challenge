@@ -19,7 +19,7 @@ router.post("/", jsonParser, (req, res) => {
         }
         
     }
-    const newPost = BlogPosts.create(req.body.title, req.body.author, req.body.publishDate || Date.now(), req.body.content);
+    const newPost = BlogPosts.create(req.body.title, req.body.author, req.body.publishDate, req.body.content);
     res.status(201).json(newPost);
 });
 
