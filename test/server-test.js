@@ -26,7 +26,7 @@ describe("Blog Posts", function() {
                 expect(res.body).to.be.a("array");
                 expect(res.body.length).to.be.at.least(1);
                 
-                const expectedKeys = ["title", "author", "publishDate", "content"];
+                const expectedKeys = ["id", "title", "author", "publishDate", "content"];
                 res.body.forEach(function(post) {
                     expect(post).to.be.a("object");
                     expect(post).to.include.keys(expectedKeys);
@@ -60,6 +60,9 @@ describe("Blog Posts", function() {
                 expect(res.body).to.be.a("object");
                 expect(res.body).to.include.keys("id", "title", "author", "publishDate", "content");
                 expect(res.body.title).to.equal(newPost.title);
+                expect(res.body.author).to.equal(newPost.author);
+                expect(res.body.publishDate).to.equal(newPost.publishDate);
+                expect(res.body.content).to.equal(newPost.content);
             });
     });
 
@@ -86,10 +89,7 @@ describe("Blog Posts", function() {
             })
 
             .then(function(res) {
-                expect(res).to.have.status(200);
-                expect(res).to.be.json;
-                expect(res.body).to.be.a("object");
-                expect(res.body).to.deep.equal(updateData);
+                expect(res).to.have.status(204);
             });
 
     });
