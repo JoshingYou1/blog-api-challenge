@@ -101,7 +101,7 @@ describe("Blog Posts", function() {
             .then(function(res) {
                 return chai
                     .request(app)
-                    .delete(`/blog-post/${res.body[0].id}`)
+                    .delete(`/blog-posts/${res.body[0].id}`)
             })
             .then(function(res) {
                 expect(res).to.have.status(204);
