@@ -49,7 +49,9 @@ describe("Blog Posts", function() {
             "fowl blessed light. Above days deep living. Let male creeping behold were him had our in their whose. His is him day. Good whales" +
             "the subdue said moved called appear unto were all second. Subdue i she'd to third upon. Very fruit divided be fruitful second" +
             "lights them gathering shall bring appear herb so void female midst darkness shall there make beast meat likeness to whose bearing" +
-            "called fish."}
+            "called fish."
+        }
+
         return chai
             .request(app)
             .post("/blog-posts")
@@ -58,10 +60,9 @@ describe("Blog Posts", function() {
                 expect(res).to.have.status(201);
                 expect(res).to.be.json;
                 expect(res.body).to.be.a("object");
-                expect(res.body).to.include.keys("id", "title", "author", "publishDate", "content");
+                expect(res.body).to.include.keys("id", "title", "author", "publishDate", "content");;
                 expect(res.body.title).to.equal(newPost.title);
                 expect(res.body.author).to.equal(newPost.author);
-                expect(res.body.publishDate).to.equal(newPost.publishDate);
                 expect(res.body.content).to.equal(newPost.content);
             });
     });

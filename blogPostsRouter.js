@@ -40,7 +40,7 @@ router.put("/:id", jsonParser, (req,res) => {
         return res.status(400).send(message);
     }
 
-    console.log(`Updating blog post \`${req.params.id}\`...`);
+    console.log(`Updating blog post \`${req.params.id}\``);
     BlogPosts.update({
         id: req.params.id,
         title: req.body.title,
@@ -54,7 +54,7 @@ router.put("/:id", jsonParser, (req,res) => {
 
 router.delete("/:id", (req, res) => {
     BlogPosts.delete(req.params.id);
-    console.log(`Deleted blog post \`${req.params.id}\``);
+    console.log(`Deleting blog post \`${req.params.id}\``);
     res.status(204).end();
 });
 
